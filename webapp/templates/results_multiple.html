@@ -1,0 +1,28 @@
+<!-- templates/results_multiple.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Multiple Test Strings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Results - Multiple Test Strings</h1>
+    <h2>Regex Pattern: {{ regex_pattern }}</h2>
+
+    {% for test_string, matches in matches_per_string %}
+        <h3>Test String: {{ test_string }}</h3>
+        {% if matches %}
+            <ul>
+                {% for match in matches %}
+                    <li>{{ match }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matches found for this test string.</p>
+        {% endif %}
+        <hr>
+    {% endfor %}
+</body>
+</html>

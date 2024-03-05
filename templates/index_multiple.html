@@ -1,0 +1,24 @@
+<!-- templates/index_multiple.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher - Multiple Test Strings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Regex Matcher - Multiple Test Strings</h1>
+    <form action="/results" method="post">
+        <label for="test_strings">Test Strings (one per line):</label>
+        <textarea name="test_strings" rows="5" required></textarea>
+        <br>
+        <label for="regex_pattern">Regex Pattern:</label>
+        <input type="text" name="regex_pattern" required>
+        <br>
+        <input type="submit" value="Match" class="btn">
+    </form>
+
+    <button onclick="window.location.href='/validate_email'" class="btn">Go to Email Verification</button>
+</body>
+</html>

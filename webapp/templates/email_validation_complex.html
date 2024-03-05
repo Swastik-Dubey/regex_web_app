@@ -1,0 +1,34 @@
+<!-- templates/email_validation_complex.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation - Complex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Email Validation - Complex</h1>
+    <form action="/validate_email" method="post">
+        <label for="email">Enter Email:</label>
+        <input type="text" name="email" required>
+        <br>
+        <label for="password">Enter Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <input type="submit" value="Validate" class="btn">
+    </form>
+
+    {% if email %}
+        <p>Email: {{ email }}</p>
+        {% if is_valid %}
+            <p class="valid-message">Valid email address.</p>
+            <p>Username: {{ username }}</p>
+            <p>Domain: {{ domain }}</p>
+            <p>Password Strength: {{ password_strength }}</p>
+        {% else %}
+            <p class="invalid-message">Invalid email address.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
